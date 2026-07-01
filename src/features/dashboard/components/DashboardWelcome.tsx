@@ -34,14 +34,20 @@ export function DashboardWelcome() {
           </li>
         </ol>
 
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <Button className="h-11 flex-1" nativeButton={false} render={<Link href="/wardrobe/new" />}>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button
+            size="lg"
+            className="h-12 w-full gap-2 text-base sm:h-11 sm:flex-1"
+            nativeButton={false}
+            render={<Link href="/wardrobe/new" />}
+          >
             <Shirt className="size-4" />
             Add clothing
           </Button>
           <Button
             variant="outline"
-            className="h-11 flex-1"
+            size="lg"
+            className="h-12 w-full gap-2 text-base sm:h-11 sm:flex-1"
             nativeButton={false}
             render={<Link href="/outfits/new" />}
           >
