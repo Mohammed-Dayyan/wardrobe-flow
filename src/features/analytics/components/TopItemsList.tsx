@@ -5,7 +5,7 @@ import {
   formatLastWorn,
   formatWearCount,
   formatWearsInMonth,
-} from "@/features/analytics/lib/format-wear-stat";
+} from "@/lib/format/wear-stat";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -30,7 +30,7 @@ function WearStatRow({ item, rank, monthLabel }: WearStatRowProps) {
   return (
     <li>
       <Link
-        href={`/wardrobe/${item.id}/edit`}
+        href={`/wardrobe?item=${item.id}`}
         className="flex items-start gap-3 rounded-lg border border-border/80 p-3 transition-colors hover:bg-muted/50"
       >
         {rank !== undefined ? (

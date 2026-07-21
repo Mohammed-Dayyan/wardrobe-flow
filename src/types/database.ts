@@ -54,6 +54,21 @@ export interface WearHistory {
   created_at: string;
 }
 
+export interface ItemWearHistoryEntry {
+  id: string;
+  worn_date: string;
+  outfit_id: string;
+  day_type: DayType;
+}
+
+export interface ItemWearHistory {
+  item: ClothingItem;
+  entries: ItemWearHistoryEntry[];
+  wear_count: number;
+  last_worn_date: string | null;
+  has_more: boolean;
+}
+
 export type ClothingItemInsert = Omit<
   ClothingItem,
   "id" | "created_at" | "updated_at"

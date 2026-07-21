@@ -72,9 +72,12 @@ export function ClothingItemCard({ item, isReferenced }: ClothingItemCardProps) 
         )}
       >
         <CardContent className="p-3">
-          {/* Name + actions row */}
           <div className="flex items-start gap-1">
-            <div className="min-w-0 flex-1">
+            <Link
+              href={`/wardrobe?item=${item.id}`}
+              aria-label={`View wear history for ${item.name}`}
+              className="min-w-0 flex-1 rounded-md outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            >
               <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
                 <h3 className="line-clamp-2 text-sm font-semibold leading-snug tracking-tight">
                   {item.name}
@@ -88,7 +91,25 @@ export function ClothingItemCard({ item, isReferenced }: ClothingItemCardProps) 
                   </Badge>
                 ) : null}
               </div>
-            </div>
+
+              <div className="mt-1.5 flex items-center gap-1.5 text-xs text-muted-foreground">
+                <CategoryIcon className="size-3 shrink-0" aria-hidden />
+                <span>{categoryLabel}</span>
+                <span aria-hidden>·</span>
+                <span
+                  className="size-2.5 shrink-0 rounded-full border border-border/70"
+                  style={{ backgroundColor: item.color }}
+                  aria-hidden
+                />
+                <span className="line-clamp-1 capitalize">{item.color}</span>
+              </div>
+
+              {item.notes ? (
+                <p className="mt-1 line-clamp-1 text-xs text-muted-foreground/80">
+                  {item.notes}
+                </p>
+              ) : null}
+            </Link>
 
             <div className="-mr-1 -mt-0.5 flex shrink-0">
               <Button
@@ -139,25 +160,6 @@ export function ClothingItemCard({ item, isReferenced }: ClothingItemCardProps) 
               )}
             </div>
           </div>
-
-          {/* Category + color meta row */}
-          <div className="mt-1.5 flex items-center gap-1.5 text-xs text-muted-foreground">
-            <CategoryIcon className="size-3 shrink-0" aria-hidden />
-            <span>{categoryLabel}</span>
-            <span aria-hidden>·</span>
-            <span
-              className="size-2.5 shrink-0 rounded-full border border-border/70"
-              style={{ backgroundColor: item.color }}
-              aria-hidden
-            />
-            <span className="line-clamp-1 capitalize">{item.color}</span>
-          </div>
-
-          {item.notes ? (
-            <p className="mt-1 line-clamp-1 text-xs text-muted-foreground/80">
-              {item.notes}
-            </p>
-          ) : null}
         </CardContent>
       </Card>
 

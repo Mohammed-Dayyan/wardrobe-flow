@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DAY_TYPE_CONFIG } from "@/lib/validations/day-types";
 import type { AnalyticsSnapshot } from "@/features/analytics/types/analytics-snapshot";
-import { formatWearCount } from "@/features/analytics/lib/format-wear-stat";
+import { formatWearCount } from "@/lib/format/wear-stat";
 import { getInsightsTeaserWearHint } from "@/features/analytics/lib/wear-insights-context";
 import { formatMonthLabel, getCurrentMonthParam } from "@/lib/utils/date";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

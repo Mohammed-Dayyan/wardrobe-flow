@@ -1,0 +1,1 @@
+export const ITEM_WEAR_HISTORY_PAGE_SIZE = 50;
